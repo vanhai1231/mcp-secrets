@@ -1,0 +1,23 @@
+name: mcp-secrets
+description: Find leaked secrets in MCP and AI agent configs.
+
+inputs:
+  path:
+    description: Path to scan.
+    required: false
+    default: "."
+  fail-on:
+    description: Severity threshold that fails the action.
+    required: false
+    default: "high"
+  format:
+    description: Output format: text, json, or sarif.
+    required: false
+    default: "text"
+
+runs:
+  using: composite
+  steps:
+    - name: Run mcp-secrets
+      shell: bash
+      run: node "$GITHUB_ACTION_PATH/bin/mcp-secrets.js" scan "${{ inputs.path }}" --format "${{ inputs.format }}" --fail-on "${{ inputs.fail-on }}"

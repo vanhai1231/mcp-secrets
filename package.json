@@ -1,0 +1,47 @@
+{
+  "name": "mcp-secrets",
+  "version": "0.1.0",
+  "description": "Find and fix leaked secrets in MCP and AI agent configs.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanhai1231/mcp-secrets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vanhai1231/mcp-secrets/issues"
+  },
+  "homepage": "https://github.com/vanhai1231/mcp-secrets#readme",
+  "bin": {
+    "mcp-secrets": "./bin/mcp-secrets.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "action.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "scan": "node ./bin/mcp-secrets.js scan",
+    "test": "node --test",
+    "check": "npm test && node ./bin/mcp-secrets.js scan fixtures --fail-on critical"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "secrets",
+    "security",
+    "ai-agents",
+    "claude",
+    "codex",
+    "cursor",
+    "gemini"
+  ]
+}
